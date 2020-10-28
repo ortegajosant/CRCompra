@@ -10,5 +10,6 @@ obj/
 # Common node modules locations
 /node_modules
 /wwwroot/node_modules
+.ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/dotnetcore
