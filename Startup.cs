@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using AutoMapper;
 
 namespace CRCompras
 {
@@ -24,11 +25,14 @@ namespace CRCompras
         {
             services.AddDbContext<CRCompraDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
             services.AddControllersWithViews();
+            services.AddAutoMapper(typeof(Startup));
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

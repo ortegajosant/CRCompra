@@ -11,7 +11,7 @@ namespace CRCompras.Models
         [StringLength(255)]
         public string Name { get; set; }
         public ICollection<Model_car> Models { get; set; }
-        public Make(int id, string name)
+        public Make()
         {
             Models = new Collection<Model_car>();
         }
