@@ -10,6 +10,7 @@ namespace CRCompras.Mapping
         {
             CreateMap<Make,MakeResource>();
             CreateMap<Model_car, ModelResource>();
+            CreateMap<Feature, FeatureResource>();
         }
     }
 }

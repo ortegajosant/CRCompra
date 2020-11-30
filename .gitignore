@@ -12,7 +12,6 @@ obj/
 /wwwroot/node_modules
 .ionide
 *.code-workspace
-appsettings.json
 
 
 # End of https://www.toptal.com/developers/gitignore/api/dotnetcore

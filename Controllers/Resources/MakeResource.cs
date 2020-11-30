@@ -14,5 +14,4 @@ namespace CRCompras.Controllers.Resources
         public string Name { get; set; }
         public ICollection<ModelResource> Models { get; set; }
     }
-
 }

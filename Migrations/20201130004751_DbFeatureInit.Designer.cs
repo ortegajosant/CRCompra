@@ -3,14 +3,16 @@ using CRCompras.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CRCompras.Migrations
 {
     [DbContext(typeof(CRCompraDBContext))]
-    partial class CRCompraDBContextModelSnapshot : ModelSnapshot
+    [Migration("20201130004751_DbFeatureInit")]
+    partial class DbFeatureInit
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
