@@ -28,10 +28,12 @@ namespace CRCompras.Controllers
             
             var vehicle = mapper.Map<VehicleResource, Vehicle>(vehicleResource);
             vehicle.LastUpdate = DateTime.Now;
+            context.Vehicle.Add(vehicle);
+
             await context.SaveChangesAsync();
             var result = mapper.Map<Vehicle, VehicleResource>(vehicle);
             
-            return Ok(vehicle);
+            return Ok(result);
         }
 
         [HttpPut("{id}")]
@@ -39,7 +41,7 @@ namespace CRCompras.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var vehicle = await context.Vehicles.Include(v => v.Features).SingleOrDefaultAsync(v=> v.Id == id);
+            var vehicle = await context.Vehicle.Include(v => v.Features).SingleOrDefaultAsync(v=> v.Id == id);
 
             if (vehicle == null)
                 return NotFound();
@@ -55,7 +57,7 @@ namespace CRCompras.Controllers
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteVehicle(int id) {
-            var vehicle = await context.Vehicles.FindAsync(id);
+            var vehicle = await context.Vehicle.FindAsync(id);
             if (vehicle == null)
                 return NotFound();
 
@@ -68,7 +70,7 @@ namespace CRCompras.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetVehicle(int id)
         {
-            var vehicle = await context.Vehicles.Include(v=>v.Features).SingleOrDefaultAsync(v=>v.Id == id);
+            var vehicle = await context.Vehicle.Include(v=>v.Features).SingleOrDefaultAsync(v=>v.Id == id);
 
             if (vehicle == null)
                 return NotFound();

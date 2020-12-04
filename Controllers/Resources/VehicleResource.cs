@@ -13,6 +13,7 @@ namespace CRCompras.Controllers.Resources
         public bool IsRegistered { get; set; }
         [Required]
         public ContactResource Contact { get; set; }
+        public DateTime LastUpdate { get; set; }
         public ICollection<int> Features { get; set; }
         public VehicleResource () {
             Features = new Collection<int>();
