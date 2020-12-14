@@ -3,15 +3,15 @@ using System.Collections.ObjectModel;
 
 namespace CRCompras.Controllers.Resources
 {
-    public class MakeResource
+    public class MakeResource : KeyValuePairResource
     {
+
+        public ICollection<KeyValuePairResource> Models { get; set; }
+        public ICollection<KeyValuePairResource> Features { get; set; }
         public MakeResource()
         {
-            Models = new Collection<ModelResource>();
+            Models = new Collection<KeyValuePairResource>();
+            Features = new Collection<KeyValuePairResource>();
         }
-        public int Id { get; set; }
-
-        public string Name { get; set; }
-        public ICollection<ModelResource> Models { get; set; }
     }
 }
